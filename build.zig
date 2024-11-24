@@ -15,7 +15,7 @@
         const   target      = b.standardTargetOptions(.{});
         const   optimize    = b.standardOptimizeOption(.{});
 
-        _                   = b.addModule("cli", .{ .root_source_file = b.path("src/io.zig") });
+        _                   = b.addModule("cli", .{ .root_source_file = b.path("src/cli.zig") });
 
         const   exe         = b.addExecutable(
         .{
