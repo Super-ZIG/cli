@@ -161,7 +161,9 @@ Easily manage commands, options, and arguments in your CLI applications. 🖥️
     - ### **Option 1: Single File Integration**
 
         - Download the [`cli.lite.zig`](./dist/cli.lite.zig) file.  
+        
         - Add it to your project directory.  
+        
         - Import it in your code:
 
         ```zig
