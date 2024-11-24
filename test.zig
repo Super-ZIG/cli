@@ -9,10 +9,6 @@
 
     test
     {
-        // outWriter 📢
-        {
-        }
-        
         // TODO: implement it !
     }
 
