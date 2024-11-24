@@ -138,7 +138,7 @@ Easily manage commands, options, and arguments in your CLI applications. 🖥️
     > Compile and execute your application:
 
     ```bash
-    ./your_app greet init -t lib --name myLib
+    ./your_app init -t lib --name myLib
     ```
 
     _**RESULT**_
