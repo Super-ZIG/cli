@@ -15,12 +15,11 @@ Easily manage commands, options, and arguments in your CLI applications. 🖥️
 - **❗ Required Options**  
     > Enforce the presence of required options for commands.
 
-- **🔎 Debugging Support**  
-    > Built-in debugging to simplify development.
-
+- **🌍 Platform Compatibility**
+    > Supports Windows, Linux and macOS.
+  
 - **📦 Single File Usage**  
     > Use the lightweight version directly by dragging `cli.lite.zig` into your project.
-
 
 ## Usage 📖
 
