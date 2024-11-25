@@ -10,22 +10,23 @@
     pub const   command     = struct 
     {
         name    : str,                          // Name of the command
-        func    : _funcType,                    // Function to execute the command
-        req     : req           = &.{},         // Required options
-        opt     : opt           = &.{},         // Optional options
+        req     : req = &.{},                   // Required options
+        opt     : opt = &.{},                   // Optional options
         
-        const _funcType         = *const fn ([]const option) bool;
+        func    : _funcType,                    // Function to execute the command
+
+        const _funcType = *const fn ([]const option) bool;
     };
     ```
 
 - #### **Example**
 
     ```zig
-    const       io                          = @import("io");
-    const       cli                         = @import("cli");
+    const io            = @import("io");
+    const cli           = @import("cli");
 
-    const       str                         = []const u8;
-    const       types                       = cli.types;
+    const str           = []const u8;
+    const types         = cli.types;
     
     // List of commands
     const g_commands    = [_]types.command

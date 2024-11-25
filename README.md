@@ -33,11 +33,11 @@ Easily manage commands, options, and arguments in your CLI applications. 🖥️
     > Start by defining your commands and their associated options.
 
     ```zig
-    const       io                          = @import("io");
-    const       cli                         = @import("cli");
+    const io            = @import("io");
+    const cli           = @import("cli");
 
-    const       str                         = []const u8;
-    const       types                       = cli.types;
+    const str           = []const u8;
+    const types         = cli.types;
     
     // List of commands
     const g_commands    = [_]types.command

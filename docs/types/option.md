@@ -7,26 +7,27 @@
 - #### **Prototype**
 
     ```zig
-    pub const   option      = struct
+    pub const option = struct
     {
         name    : str,                          // Name of the option
-        func    : ?_funcType    = undefined,    // Function to execute the option
         short   : u8,                           // Short form, e.g., -n|-N
         long    : str,                          // Long form, e.g., --name
-        value   : str           = "",           // Value of the option
+        value   : str = "",                     // Value of the option
 
-        const _funcType         = *const fn (str) bool;
+        func    : ?_funcType = undefined,       // Function to execute the option
+        
+        const _funcType = *const fn (str) bool;
     };
     ```
 
 - #### **Example**
 
     ```zig
-    const       io                          = @import("io");
-    const       cli                         = @import("cli");
+    const io            = @import("io");
+    const cli           = @import("cli");
 
-    const       str                         = []const u8;
-    const       types                       = cli.types;
+    const str           = []const u8;
+    const types         = cli.types;
     
     // List of commands
     const g_commands    = [_]types.command

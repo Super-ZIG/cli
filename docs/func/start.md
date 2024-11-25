@@ -31,11 +31,11 @@
 - #### **Example**
 
     ```zig
-    const       io                          = @import("io");
-    const       cli                         = @import("cli");
+    const io            = @import("io");
+    const cli           = @import("cli");
 
-    const       str                         = []const u8;
-    const       types                       = cli.types;
+    const str           = []const u8;
+    const types         = cli.types;
     
     // List of commands
     const g_commands    = [_]types.command
