@@ -202,8 +202,11 @@
             // Execute option functions
             for (used_options) |option|
             {
+                // Function Defined ?
+                if(option.func == null) continue;
+                
                 // Call the function associated with the option
-                const result = option.func(option.value);
+                const result = option.func.?(option.value);
 
                 if (!result)
                 {

@@ -41,11 +41,11 @@
         /// Structure to represent the type of option.
         pub const   option      = struct
         {
-            name    : str,                      // Name or description of the option
-            func    : _funcType,                // Function to execute the option
-            short   : u8,                       // Short form, e.g., -n|-N
-            long    : str,                      // Long form, e.g., --name
-            value   : str           = "",       // Value of the option
+            name    : str,                          // Name or description of the option
+            func    : ?_funcType    = undefined,    // Function to execute the option                                               
+            short   : u8,                           // Short form, e.g., -n|-N
+            long    : str,                          // Long form, e.g., --name
+            value   : str           = "",           // Value of the option
 
             const _funcType         = *const fn (str) bool;
         };
@@ -249,8 +249,11 @@
             // Execute option functions
             for (used_options) |option|
             {
+                // Function Defined ?
+                if(option.func == null) continue;
+                
                 // Call the function associated with the option
-                const result = option.func(option.value);
+                const result = option.func.?(option.value);
 
                 if (!result)
                 {
@@ -269,8 +272,10 @@
 // ╚══════════════════════════════════════════════════════════════════════════════════╝
 
 
-// ╔══════════════════════════════════════  IO  ══════════════════════════════════════╗
 
+// ╔══════════════════════════════════════ PACK ══════════════════════════════════════╗
+
+    /// @ref https://github.com/Super-ZIG/io/blob/main/dist/io.lite.zig
     const io = struct
     {
         /// Outputs a simple message followed by a newline.
