@@ -21,7 +21,7 @@
 
   - `_options`
       
-      > The options like `ziggy init -t lib --name myLib` _`-t` and `--name` is an options._
+      > The options like `ziggy test -1 valOne -2 valTwo -3 valThree` _`-t` and `--name` is an options._
 
 
   - `_debug`
@@ -128,14 +128,19 @@
     _**RESULT**_
 
     ```bash
-    Detected command: 'init'
+    # ./your_app test -1 valOne -2 valTwo -3 valThree
 
-    - 'init' command
-       'type' option => 'lib'
-       'name' option => 'myLib'
+    Detected command: 'test'
 
-    Command executed successfully: 'init'
+    > 'test'
+        option1 = 'valOne' 
+        option2 = 'valTwo' 
+        option3 = 'valThree' 
+        => [option3FN] _val = 'valThree' 
+
+    Command executed successfully: 'test'
     ```
+
 - #### **Notes**
 
     - **Only at `Run-Time`.**

@@ -137,19 +137,21 @@ Easily manage commands, options, and arguments in your CLI applications. 🖥️
     > Compile and execute your application:
 
     ```bash
-    ./your_app init -t lib --name myLib
+    ./your_app test -1 valOne -2 valTwo -3 valThree
     ```
 
     _**RESULT**_
 
     ```bash
-    Detected command: 'init'
+    Detected command: 'test'
 
-    - 'init' command
-       'type' option => 'lib'
-       'name' option => 'myLib'
+    > 'test'
+        option1 = 'valOne' 
+        option2 = 'valTwo' 
+        option3 = 'valThree' 
+        => [option3FN] _val = 'valThree' 
 
-    Command executed successfully: 'init'
+    Command executed successfully: 'test'
     ```
 ---
 
