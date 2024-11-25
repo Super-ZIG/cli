@@ -9,11 +9,11 @@
     ```zig
     pub const   option      = struct
     {
-        name    : str,                      // Name or description of the option
-        func    : _funcType,                // Function to execute the option
-        short   : u8,                       // Short form, e.g., -n|-N
-        long    : str,                      // Long form, e.g., --name
-        value   : str           = "",       // Value of the option
+        name    : str,                          // Name of the option
+        func    : ?_funcType    = undefined,    // Function to execute the option
+        short   : u8,                           // Short form, e.g., -n|-N
+        long    : str,                          // Long form, e.g., --name
+        value   : str           = "",           // Value of the option
 
         const _funcType         = *const fn (str) bool;
     };
@@ -34,27 +34,17 @@
     {
         Command
         {
-            .name = "init",
-            .func = &Functions.Commands.initFN,
-            
-            // Required options for 'init' command
-            .req = &.{ "type", "name" },
-
-            // Optional options for 'init' command
-            // .opt = &.{},
+            .name   = "test",                           // Name of the command
+            .func   = &Functions.Commands.testFN,       // Function associated with the command
+            .req    = &.{ "option1", "option2" },       // Required options for 'test' command
+            .opt    = &.{ "option3" },                  // Optional options for 'test' command
         },
 
         Command
         {
-            .name = "help",
-            .func = &Functions.Commands.helpFN,
-                        
-            // Required options for 'init' command
-            // .req = &.{},
-
-            // Optional options for 'init' command
-            // .opt = &.{},
-        },
+            .name   = "help",                           // Name of the command
+            .func   = &Functions.Commands.helpFN,       // Function associated with the command
+        }
     };
 
     // List of options
@@ -62,18 +52,24 @@
     {
         Option
         {
-            .name   = "type",
-            .short  = 't',
-            .long   = "type",
-            .func   = &Functions.Options.typeFN,
+            .name   = "option1",
+            .short  = '1',
+            .long   = "option1",
         },
 
         Option
         {
-            .name   = "name",
-            .short  = 'n',
-            .long   = "name",
-            .func   = &Functions.Options.nameFN,
+            .name   = "option2",
+            .short  = '2',
+            .long   = "option2",
+        },
+
+        Option
+        {
+            .name   = "option3",
+            .short  = '3',
+            .long   = "option3",
+            .func   = &Functions.Options.option3FN
         },
     };
 
@@ -81,15 +77,21 @@
     {
         pub const Commands = struct
         {
-            pub fn initFN(_: []const Option) bool
+            pub fn testFN(_options: []const Option) bool
             {
-                io.out("init command") catch unreachable;
+                io.out("> test") catch unreachable;
+
+                for(_options) |option|
+                {
+                    io.outWith("    {s} = '{s}' \n", .{option.name, option.value}) catch unreachable;
+                }
+
                 return true;
             }
 
             pub fn helpFN(_: []const Option) bool
             {
-                io.out("help command") catch unreachable;
+                io.out("> help") catch unreachable;
 
                 return true;
             }
@@ -97,15 +99,10 @@
 
         pub const Options = struct
         {
-            pub fn nameFN(_val: str) bool
+            pub fn option3FN(_val : str) bool
             {
-                io.outWith("name option => {s} \n", .{_val}) catch unreachable;
-                return true;
-            }
+                io.outWith("    => [option3FN] _val = '{s}' \n", .{ _val }) catch unreachable;
 
-            pub fn typeFN(_val: str) bool
-            {
-                io.outWith("type option => {s} \n", .{_val}) catch unreachable;
                 return true;
             }
         };
