@@ -15,12 +15,12 @@
 // ╔══════════════════════════════════════ CONF ══════════════════════════════════════╗
 
     // List of commands
-    const g_commands = [_]types.command
+    const g_commands    = [_]types.command
     {
         types.command
         {
             .name   = "test",                           // Name of the command
-            .func   = &Functions.Commands.testFN,       // Function associated with the command
+            .func   = &g_functions.commands.testFN,     // Function associated with the command
             .req    = &.{ "option1", "option2" },       // Required options for 'test' command
             .opt    = &.{ "option3" },                  // Optional options for 'test' command
         },
@@ -28,12 +28,12 @@
         types.command
         {
             .name   = "help",                           // Name of the command
-            .func   = &Functions.Commands.helpFN,       // Function associated with the command
+            .func   = &g_functions.commands.helpFN,     // Function associated with the command
         }
     };
 
     // List of options
-    const g_options = [_]types.option
+    const g_options     = [_]types.option
     {
         types.option
         {
@@ -54,13 +54,13 @@
             .name   = "option3",
             .short  = '3',
             .long   = "option3",
-            .func   = &Functions.Options.option3FN
+            .func   = &g_functions.options.option3FN
         },
     };
 
-    pub const Functions = struct
+    const g_functions   = struct
     {
-        pub const Commands = struct
+        pub const commands = struct
         {
             pub fn testFN(_options: []const types.option) bool
             {
@@ -82,7 +82,7 @@
             }
         };
 
-        pub const Options = struct
+        pub const options = struct
         {
             pub fn option3FN(_val : str) bool
             {
