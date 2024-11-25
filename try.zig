@@ -3,12 +3,9 @@
     const       std                         = @import("std");
     const       io                          = @import("./src/libs/io.zig");
     const       cli                         = @import("./src/cli.zig");
-    // const       cli                         = @import("./dist/cli.lite.zig");        // to try the lite version (same code but in one file)
-    const       testing                     = std.testing;
 
     const       str                         = []const u8;
-    const       Option                      = cli.types.option;
-    const       Command                     = cli.types.command;
+    const       types                       = cli.types;
 
 // ╚══════════════════════════════════════════════════════════════════════════════════╝
 
@@ -18,9 +15,9 @@
 // ╔══════════════════════════════════════ CONF ══════════════════════════════════════╗
 
     // List of commands
-    const g_commands = [_]Command
+    const g_commands = [_]types.command
     {
-        Command
+        types.command
         {
             .name   = "test",                           // Name of the command
             .func   = &Functions.Commands.testFN,       // Function associated with the command
@@ -28,7 +25,7 @@
             .opt    = &.{ "option3" },                  // Optional options for 'test' command
         },
 
-        Command
+        types.command
         {
             .name   = "help",                           // Name of the command
             .func   = &Functions.Commands.helpFN,       // Function associated with the command
@@ -36,23 +33,23 @@
     };
 
     // List of options
-    const g_options = [_]Option
+    const g_options = [_]types.option
     {
-        Option
+        types.option
         {
             .name   = "option1",
             .short  = '1',
             .long   = "option1",
         },
 
-        Option
+        types.option
         {
             .name   = "option2",
             .short  = '2',
             .long   = "option2",
         },
 
-        Option
+        types.option
         {
             .name   = "option3",
             .short  = '3',
@@ -65,7 +62,7 @@
     {
         pub const Commands = struct
         {
-            pub fn testFN(_options: []const Option) bool
+            pub fn testFN(_options: []const types.option) bool
             {
                 io.out("> test") catch unreachable;
 
@@ -77,7 +74,7 @@
                 return true;
             }
 
-            pub fn helpFN(_: []const Option) bool
+            pub fn helpFN(_: []const types.option) bool
             {
                 io.out("> help") catch unreachable;
 
