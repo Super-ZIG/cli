@@ -2,7 +2,7 @@
 
     const       std                         = @import("std");
     const       io                          = @import("./libs/io.zig");
-    pub const   types                       = @import("./types/_.zig");
+    pub const   types                       = @import("./types/all.zig");
 
 // ╚══════════════════════════════════════════════════════════════════════════════════╝
 
