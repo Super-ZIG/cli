@@ -268,6 +268,8 @@ Easily manage commands, options, and arguments in your CLI applications. 🖥️
     - ##### Related
         
         - [SuperZIG IO](https://github.com/Super-ZIG/io)
+
+        - [SuperZIG ANSI](https://github.com/Super-ZIG/ansi)
       
 ---
 
