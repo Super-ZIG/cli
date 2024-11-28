@@ -144,15 +144,27 @@
 
     - **Only at `Run-Time`.**
 
-    - **Can throw errors, see [`cli.Error`](../enums/Error.md).**
+    - **Can throw errors, see [`cli.Error`](#errors).**
+
+- #### **Errors**
+
+    ```zig
+    pub const Error = error
+    {
+        NoArgsProvided,
+        UnknownCommand,
+        UnknownOption,
+        MissingRequiredOption,
+        UnexpectedArgument,
+        CommandExecutionFailed
+    };
+    ```
 
 - ##### Related
 
   - ###### [`cli.type.command`](../types/command.md)
 
   - ###### [`cli.type.option`](../types/option.md)
-
-  - ###### [`cli.Error`](../enums/Error.md)
 
 ---
 

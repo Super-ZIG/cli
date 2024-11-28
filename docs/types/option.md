@@ -136,15 +136,11 @@
 
     - **Only at `Run-Time`.**
 
-    - **Can throw errors, see [`cli.Error`](../enums/Error.md).**
-
 - ##### Related
 
   - ###### [`cli.type.command`](./command.md)
 
   - ###### [`cli.start`](../func/start.md)
-
-  - ###### [`cli.Error`](../enums/Error.md)
 
 ---
 
