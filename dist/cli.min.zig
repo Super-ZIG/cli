@@ -1,4 +1,4 @@
-// This is a lite version of https://github.com/Super-ZIG/cli library.
+// This is a min version of https://github.com/Super-ZIG/cli library.
 // I created this file to use this library without the need to install it via Zig. 
 // Simply drag this single file into your project and import it.
 //
@@ -275,7 +275,7 @@
 
 // ╔══════════════════════════════════════ PACK ══════════════════════════════════════╗
 
-    /// @ref https://github.com/Super-ZIG/io/blob/main/dist/io.lite.zig
+    /// @ref https://github.com/Super-ZIG/io/blob/main/dist/io.min.zig
     const io = struct
     {
         /// Outputs a simple message followed by a newline.

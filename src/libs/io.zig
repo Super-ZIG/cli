@@ -1,6 +1,6 @@
-// This is lite version of https://github.com/Super-ZIG/io lib.
-// I created this file to use this lib wihtout need to install it using zig, just drag this single file into your project and import it.
-// The lite version currently does not support on/once functions !
+// This is a min version of https://github.com/Super-ZIG/io library.
+// I created this file to use this library without the need to install it via Zig. 
+// Simply drag this single file into your project and import it.
 //
 // Made with ❤️ by Maysara.
 //

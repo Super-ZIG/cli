@@ -22,7 +22,7 @@ Easily manage commands, options, and arguments in your CLI applications. 🖥️
     > Supports Windows, Linux and macOS.
   
 - **📦 Single File Usage**  
-    > Use the lightweight version directly by dragging `cli.lite.zig` into your project.
+    > Use the lightweight version directly by dragging `cli.min.zig` into your project.
 
 ## Usage 📖
 
@@ -160,14 +160,14 @@ Easily manage commands, options, and arguments in your CLI applications. 🖥️
 
     - ### **Option 1: Single File Integration**
 
-        - Download the [`cli.lite.zig`](./dist/cli.lite.zig) file.  
+        - Download the [`cli.min.zig`](./dist/cli.min.zig) file.  
         
         - Add it to your project directory.  
         
         - Import it in your code:
 
         ```zig
-        const cli = @import("path/to/your/cli.lite.zig");
+        const cli = @import("path/to/your/cli.min.zig");
         ```
 
     - ### **Option 2: Zig Dependency**
