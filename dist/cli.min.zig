@@ -1,5 +1,5 @@
 // • This is a min version of ❮ https://github.com/Super-ZIG/cli ❯ library •
-// • • • Simply drag this single file into your project and import it • • •
+// • • • Simply drag this single file into your project and import it  • • •
 // 
 // ╭────────────────────────╮  ✤ https://maysara.xyz
 // │ Made with ❤️ by Maysara │  ✤ https://github.com/maysara-elshewehy
